@@ -1,6 +1,12 @@
-.App {
-  height: 100vh;
+body {
   background-color: rgb(241, 241, 241);
+}
+
+.App {
+  background-color: rgb(241, 241, 241);
+  padding-left: 15rem;
+  min-height: 100vh;
+  width: 100%;
 }
 
 .FilesPage {
@@ -15,6 +21,10 @@
   border-right: 1px solid rgba(128, 128, 128, 0.434);
   padding: 0rem 1rem;
   gap: 1rem;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 .FilesPage .side-bar h1 {
   padding: 0;
@@ -64,4 +74,72 @@
 }
 .FilesPage .main-screen {
   flex-grow: 1;
+}
+.FilesPage .main-screen .wrapper {
+  padding: 2rem 8rem;
+}
+.FilesPage .main-screen .wrapper h2 {
+  font-weight: 600;
+}
+.FilesPage .main-screen .wrapper input {
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(128, 128, 128, 0.434);
+  width: 50rem;
+}
+.FilesPage .main-screen .wrapper section {
+  margin-top: 2rem;
+}
+.FilesPage .main-screen .wrapper section span.title {
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+.FilesPage .main-screen .wrapper section span {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.FilesPage .main-screen .wrapper section .projs {
+  display: flex;
+  gap: 1rem;
+}
+.FilesPage .main-screen .wrapper section .projs .folder-icon {
+  width: 12rem;
+}
+.FilesPage .main-screen .wrapper section .projs .proj {
+  background-color: rgb(39, 39, 147);
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 16rem;
+}
+.FilesPage .main-screen .wrapper section .projs .proj .inner-pic {
+  background-color: white;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid rgba(128, 128, 128, 0.434);
+  height: 4rem;
+}
+.FilesPage .main-screen .wrapper section .projs .proj .inner-pic span {
+  transform: translateY(-0.5rem);
+}
+.FilesPage .main-screen .wrapper section .projs .proj .text-content {
+  color: white;
+  font-size: 1.2rem;
+  padding: 1rem 0;
+  text-overflow: ellipsis;
+}
+.FilesPage .main-screen .wrapper section.suggested {
+  margin-top: 2rem;
+}
+.FilesPage .main-screen .wrapper section.suggested span {
+  font-weight: 600;
+}
+.FilesPage .main-screen .wrapper section.folders {
+  margin-top: 2rem;
+}
+.FilesPage .main-screen .wrapper section.folders span {
+  font-weight: 600;
 }/*# sourceMappingURL=App.css.map */

@@ -1,6 +1,8 @@
 import React from 'react'
 
+
 const FilesPage = () => {
+    const nums = [1,2,3,4,5]
   return (
     <div className='FilesPage'>
         <div className="side-bar">
@@ -29,7 +31,44 @@ const FilesPage = () => {
             </div>
         </div>
         <div className="main-screen">
-            Main`screan
+            <div className="wrapper">
+                <h2>Files</h2>
+                <input type="text" placeholder='Search in Your files' className='search-inp' />
+                <section className='blank'>
+                    <span className='title'>blank project</span>
+                    <div className="projs">
+                        <div className="proj">
+                            <div className="inner-pic">
+                                <span>+</span>
+                            </div>
+                            <div className="text-content">
+                                Open blank file
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section className='suggested'>
+                    <span className='title'>suggested</span>
+                    <div className="projs">
+                        {nums.map(num => (
+                            <div className="proj">
+                                <div className="inner-pic">
+                                    <span>+</span>
+                                </div>
+                                <div className="text-content">
+                                    Impact of Gaslift on the Economy
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+                <section className='folders'>
+                    <span className='title'>Folders</span>
+                    <div className="projs">
+                        <img className='folder-icon' src={require("../images/folder.png")} alt="" />
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
   )
