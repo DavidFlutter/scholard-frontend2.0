@@ -1,38 +1,67 @@
 .App {
-  text-align: center;
+  height: 100vh;
+  background-color: rgb(241, 241, 241);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.FilesPage {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.FilesPage .side-bar {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: white;
+  border-right: 1px solid rgba(128, 128, 128, 0.434);
+  padding: 0rem 1rem;
+  gap: 1rem;
+}
+.FilesPage .side-bar h1 {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 1000;
+  color: rgb(36, 36, 36);
+}
+.FilesPage .side-bar .new-proj-btn {
+  background-color: rgb(39, 39, 147);
   color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  margin-bottom: 3rem;
 }
-
-.App-link {
-  color: #61dafb;
+.FilesPage .side-bar .sidebar-btn {
+  background-color: transparent;
+  border: 1px solid rgba(128, 128, 128, 0.434);
+  border-radius: 0.5rem;
+  padding: 0.2rem 1rem;
+  text-align: start;
+  color: rgb(36, 36, 36);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.FilesPage .side-bar .spacer {
+  flex-grow: 1;
 }
+.FilesPage .side-bar .user-details {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.FilesPage .side-bar .user-details img {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.FilesPage .side-bar .user-details .text-content {
+  display: flex;
+  flex-direction: column;
+}
+.FilesPage .main-screen {
+  flex-grow: 1;
+}/*# sourceMappingURL=App.css.map */
