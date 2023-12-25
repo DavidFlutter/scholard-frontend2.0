@@ -25,6 +25,7 @@ body {
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 100;
 }
 .FilesPage .side-bar h1 {
   padding: 0;
@@ -78,40 +79,41 @@ body {
 .FilesPage .main-screen .wrapper {
   padding: 2rem 8rem;
 }
-.FilesPage .main-screen .wrapper h2 {
+
+.Home h2 {
   font-weight: 600;
 }
-.FilesPage .main-screen .wrapper input {
+.Home input {
   padding: 0.8rem;
   border-radius: 0.8rem;
   border: 1px solid rgba(128, 128, 128, 0.434);
   width: 50rem;
 }
-.FilesPage .main-screen .wrapper section {
+.Home section {
   margin-top: 2rem;
 }
-.FilesPage .main-screen .wrapper section span.title {
+.Home section span.title {
   margin-bottom: 1rem;
   display: inline-block;
 }
-.FilesPage .main-screen .wrapper section span {
+.Home section span {
   font-weight: 600;
   margin-bottom: 1rem;
 }
-.FilesPage .main-screen .wrapper section .projs {
+.Home section .projs {
   display: flex;
   gap: 1rem;
 }
-.FilesPage .main-screen .wrapper section .projs .folder-icon {
+.Home section .projs .folder-icon {
   width: 12rem;
 }
-.FilesPage .main-screen .wrapper section .projs .proj {
+.Home section .projs .proj {
   background-color: rgb(39, 39, 147);
   padding: 1rem;
   border-radius: 1rem;
   width: 16rem;
 }
-.FilesPage .main-screen .wrapper section .projs .proj .inner-pic {
+.Home section .projs .proj .inner-pic {
   background-color: white;
   border-radius: 1rem;
   font-size: 1rem;
@@ -122,24 +124,205 @@ body {
   border: 1.5px solid rgba(128, 128, 128, 0.434);
   height: 4rem;
 }
-.FilesPage .main-screen .wrapper section .projs .proj .inner-pic span {
+.Home section .projs .proj .inner-pic span {
   transform: translateY(-0.5rem);
 }
-.FilesPage .main-screen .wrapper section .projs .proj .text-content {
+.Home section .projs .proj .text-content {
   color: white;
   font-size: 1.2rem;
   padding: 1rem 0;
   text-overflow: ellipsis;
 }
-.FilesPage .main-screen .wrapper section.suggested {
+.Home section.suggested {
   margin-top: 2rem;
 }
-.FilesPage .main-screen .wrapper section.suggested span {
+.Home section.suggested span {
   font-weight: 600;
 }
-.FilesPage .main-screen .wrapper section.folders {
+.Home section.folders {
   margin-top: 2rem;
 }
-.FilesPage .main-screen .wrapper section.folders span {
+.Home section.folders span {
   font-weight: 600;
+}
+
+.CreateProjectModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10000;
+}
+.CreateProjectModal .backdrop {
+  background-color: rgba(0, 0, 0, 0.14);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.CreateProjectModal .backdrop .tile {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.CreateProjectModal .backdrop .tile section button {
+  background-color: rgb(39, 39, 147);
+  color: rgb(36, 36, 36);
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  border: 1px solid rgb(39, 39, 147);
+}
+.CreateProjectModal .backdrop .tile section .inp {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+.CreateProjectModal .backdrop .tile section .inp input {
+  min-width: 30rem;
+  padding: 0.7rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(128, 128, 128, 0.434);
+}
+.CreateProjectModal .backdrop .tile section.members .button {
+  display: flex;
+}
+.CreateProjectModal .backdrop .tile section.members .button .spacer {
+  flex-grow: 1;
+}
+.CreateProjectModal .backdrop .tile section.invite {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+.CreateProjectModal .backdrop .tile section.invite button {
+  transform: translateY(0.4rem);
+}
+.CreateProjectModal .backdrop .tile section.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+.CreateProjectModal .backdrop .tile section.buttons .cancel-btn {
+  color: rgb(39, 39, 147);
+  background-color: transparent;
+  border: 1px solid rgb(39, 39, 147);
+}
+
+.ChatTile {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  width: 25rem;
+  position: fixed;
+  right: 1rem;
+  bottom: 0rem;
+  box-shadow: 3px 3px 20px rgba(96, 96, 96, 0.563);
+  border-radius: 1rem 1rem 0 0;
+  border: 1.5px solid rgba(128, 128, 128, 0.434);
+  background-color: rgb(241, 241, 241);
+  z-index: 9;
+}
+.ChatTile.is-closed {
+  height: -moz-min-content;
+  height: min-content;
+}
+.ChatTile.is-closed .main {
+  display: none;
+}
+.ChatTile.is-closed .form {
+  display: none;
+}
+.ChatTile .head {
+  background-color: rgb(39, 39, 147);
+  border-radius: 1rem 1rem 0 0;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ChatTile .head h2 {
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-weight: 100;
+  font-size: 1.2rem;
+}
+.ChatTile .head button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-weight: 100;
+  font-size: 1.2rem;
+}
+.ChatTile .main {
+  flex-grow: 1;
+  background-color: rgb(241, 241, 241);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 1rem;
+  box-sizing: content-box;
+  gap: 1rem;
+}
+.ChatTile .main .message-tile {
+  background-color: rgb(194, 227, 237);
+  width: 80%;
+  text-align: end;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.ChatTile .main .message-tile.left {
+  align-self: flex-start;
+  text-align: start;
+  background-color: rgb(246, 246, 188);
+}
+.ChatTile .form {
+  border: 1px solid rgba(128, 128, 128, 0.434);
+  border-radius: 1rem;
+  padding: 0;
+  background-color: white;
+  margin: 1rem;
+  display: flex;
+}
+.ChatTile .form input {
+  border: none;
+  outline: none;
+  padding: 1rem;
+  flex-grow: 1;
+  background-color: transparent;
+}
+.ChatTile .form button {
+  background-color: transparent;
+  color: rgb(39, 39, 147);
+  border: none;
+  font-weight: 1000;
+  cursor: pointer;
+}
+
+.TextEditor {
+  background-color: transparent;
+  width: 74.4rem;
+  margin-top: 0rem;
+}
+.TextEditor h2 {
+  font-size: 3rem;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 2rem;
+}
+.TextEditor .quill {
+  background-color: white;
+  height: 105.24rem;
+  width: 100%;
 }/*# sourceMappingURL=App.css.map */

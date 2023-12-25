@@ -1,12 +1,13 @@
 $scholard-border-gray: rgba(128, 128, 128, 0.434);
 $scholard-text-gray:  rgb(36, 36, 36);
 $scholard-blue:  rgb(39, 39, 147);
+$scholardAlmostWhite: rgb(241, 241, 241);
 body{
-    background-color: rgb(241, 241, 241);
+    background-color: $scholardAlmostWhite;
 }
 
 .App{
-    background-color: rgb(241, 241, 241);
+    background-color: $scholardAlmostWhite;
     padding-left: 15rem;
     min-height: 100vh;
     width: 100%;
@@ -28,6 +29,7 @@ body{
         position: fixed;
         left: 0;
         top: 0;
+        z-index: 100;
         h1{
             padding: 0;
             margin: 0;
@@ -79,73 +81,265 @@ body{
         flex-grow: 1;
         .wrapper{
             padding: 2rem 8rem;
-            h2{
-                font-weight: 600;
-            }
-            input{
-                padding: 0.8rem;
-                border-radius: 0.8rem;
-                border: 1px solid $scholard-border-gray;
-                width: 50rem;
-            }
-            section{
-                margin-top: 2rem;
-                span.title{
-                    margin-bottom: 1rem;
-                    display: inline-block;
-                }
-                span{
-                    font-weight: 600;
-                    margin-bottom: 1rem;
-                }
+        }
+    }
+}
 
-                .projs{
+.Home{
+    h2{
+        font-weight: 600;
+    }
+    input{
+        padding: 0.8rem;
+        border-radius: 0.8rem;
+        border: 1px solid $scholard-border-gray;
+        width: 50rem;
+    }
+    section{
+        margin-top: 2rem;
+        span.title{
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        span{
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .projs{
+            display: flex;
+            gap: 1rem;
+            .folder-icon{
+                width: 12rem;
+            }
+            .proj{
+                background-color: $scholard-blue;
+                padding: 1rem;
+                border-radius: 1rem;
+                width: 16rem;
+                .inner-pic{
+                    background-color: white;
+                    border-radius: 1rem;
+                    font-size: 1rem;
+                    font-weight: 100;
                     display: flex;
-                    gap: 1rem;
-                    .folder-icon{
-                        width: 12rem;
-                    }
-                    .proj{
-                        background-color: $scholard-blue;
-                        padding: 1rem;
-                        border-radius: 1rem;
-                        width: 16rem;
-                        .inner-pic{
-                            background-color: white;
-                            border-radius: 1rem;
-                            font-size: 1rem;
-                            font-weight: 100;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            border: 1.5px solid $scholard-border-gray;
-                            height: 4rem;
-                            span{
-                                transform: translateY(-0.5rem);
-                            }
-                        }
-                        .text-content{
-                            color: white;
-                            font-size: 1.2rem;
-                            padding: 1rem 0;
-                            text-overflow: ellipsis;
-                        }
+                    justify-content: center;
+                    align-items: center;
+                    border: 1.5px solid $scholard-border-gray;
+                    height: 4rem;
+                    span{
+                        transform: translateY(-0.5rem);
                     }
                 }
-            }
-            section.suggested{
-                margin-top: 2rem;
-                span{
-                    font-weight: 600;
+                .text-content{
+                    color: white;
+                    font-size: 1.2rem;
+                    padding: 1rem 0;
+                    text-overflow: ellipsis;
                 }
-            }
-            section.folders{
-                margin-top: 2rem;
-                span{
-                    font-weight: 600;
-                }
-                
             }
         }
+    }
+    section.suggested{
+        margin-top: 2rem;
+        span{
+            font-weight: 600;
+        }
+    }
+    section.folders{
+        margin-top: 2rem;
+        span{
+            font-weight: 600;
+        }
+        
+    }
+}
+
+.CreateProjectModal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10000;
+    .backdrop{
+        background-color: rgba(0, 0, 0, 0.14);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .tile{
+            background-color: white;
+            padding: 2rem;
+            border-radius: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            section{
+                button{
+                    background-color: $scholard-blue;
+                    color: $scholard-text-gray;
+                    border-radius: .5rem;
+                    border: none;
+                    padding: .5rem 1rem ;
+                    color: white;
+                    border: 1px solid $scholard-blue;
+
+                }
+                .inp{
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: .5rem;
+                    input{
+                        min-width: 30rem;
+                        padding: .7rem;
+                        border-radius: 1rem;
+                        border: 1px solid $scholard-border-gray;
+                    }
+                }
+                &.members{
+                    .button{
+                        display: flex;
+                        .spacer{
+                            flex-grow: 1;
+                        }
+                        .add-member-btn{
+                        }
+                    }
+                }
+                &.invite{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 1rem;
+                    button{
+                        transform: translateY(.4rem);
+                    }
+                }
+                &.buttons{
+                    display: flex;
+                    justify-content: flex-end;
+                    gap: 2rem;
+                    .cancel-btn{
+                        color: $scholard-blue;
+                        background-color: transparent;
+                        border: 1px solid $scholard-blue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.ChatTile{
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 25rem;
+    position: fixed;
+    right: 1rem;
+    bottom: 0rem;
+    box-shadow: 3px 3px 20px rgba(96, 96, 96, 0.563);
+    border-radius: 1rem 1rem 0 0;
+    border: 1.5px solid $scholard-border-gray;
+    background-color: $scholardAlmostWhite;
+    z-index: 9;
+    &.is-closed{
+        height: min-content;
+        .main{
+            display: none;
+        }
+        .form{
+            display: none;
+        }
+    }
+    .head{
+        background-color: $scholard-blue;
+        border-radius: 1rem 1rem 0 0;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h2{
+            padding: 0;
+            margin: 0;
+            color: white;
+            font-weight: 100;
+            font-size: 1.2rem;
+        }
+        button{
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-weight: 100;
+            font-size: 1.2rem;
+        }
+    }
+    .main{
+        flex-grow: 1;
+        background-color: $scholardAlmostWhite;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        padding: 1rem;
+        box-sizing: content-box;
+        gap: 1rem;
+        .message-tile{
+            background-color: rgb(194, 227, 237);
+            width: 80%;
+            text-align: end;
+            padding: .5rem;
+            border-radius: .5rem;
+            font-size:1.2rem;
+            font-weight: 400;
+            &.left{
+                align-self: flex-start;
+                text-align: start;
+                background-color: rgb(246, 246, 188);
+            }
+        }
+        
+    }
+    .form{
+        border: 1px solid $scholard-border-gray;
+        border-radius: 1rem;
+        padding: 0;
+        background-color: white;
+        margin: 1rem;
+        display: flex;
+        input{
+            border: none;
+            outline: none;
+            padding: 1rem;
+            flex-grow: 1;
+            background-color: transparent;
+        }
+        button{
+            background-color: transparent;
+            color: $scholard-blue;
+            border: none;
+            font-weight: 1000;
+            cursor: pointer;
+        }
+    }
+}
+
+.TextEditor{
+    background-color: transparent;
+    width: 74.4rem;
+    margin-top: 0rem;
+    h2{
+        font-size: 3rem;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 2rem;
+    }
+    .quill{
+        background-color: white;
+        height: 105.24rem;
+        width: 100%;
     }
 }
