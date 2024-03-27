@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/scholard-frontend2.0/static/css/main.addbc470.css",
+    "main.js": "/scholard-frontend2.0/static/js/main.45edf842.js",
+    "index.html": "/scholard-frontend2.0/index.html",
+    "main.addbc470.css.map": "/scholard-frontend2.0/static/css/main.addbc470.css.map",
+    "main.45edf842.js.map": "/scholard-frontend2.0/static/js/main.45edf842.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.addbc470.css",
+    "static/js/main.45edf842.js"
+  ]
+}
